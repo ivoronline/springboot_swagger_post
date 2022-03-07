@@ -1,17 +1,20 @@
 package com.ivoronline.springboot_swagger_post.controllers;
 
 import com.ivoronline.springboot_swagger_post.DTO.PersonDTO;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@Controller
+@RestController
+@EnableSwagger2
 public class MyController {
 
-  @ResponseBody
-  @RequestMapping("/AddPerson")
-  public String addPerson(@RequestBody PersonDTO personDTO) {
+  //=========================================================================
+  // ADD PERSON
+  //=========================================================================
+  @PostMapping("AddPerson")
+  String addPerson(@RequestBody PersonDTO personDTO) {
 
     //GET DATA FROM PersonDTO
     String  name = personDTO.name;
